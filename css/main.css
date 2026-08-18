@@ -3015,86 +3015,35 @@ blockquote {
   }
 }
 
-/* --- Certificações: alinhamento uniforme da grid --- */
-/* Cada figure vira uma coluna flex, e o título ocupa uma faixa de altura
-   reservada. Assim, títulos de 1 ou 2 linhas geram cards da mesma altura
-   e as fileiras da grid ficam alinhadas. */
-.portfolio-grid figure {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.portfolio-grid figure .portfolio-item-img {
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.portfolio-grid figure .name {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-  margin: 0;
-  padding: 12px 6px;
-  font-size: 14px;
-  line-height: 1.35;
-  /* espaco reservado para ate 2 linhas de titulo */
-  min-height: 66px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
-/* Faixas de largura em que a coluna fica estreita e o titulo pode
-   ocupar 3 linhas: reserva altura maior para manter o alinhamento. */
-@media only screen and (min-width: 769px) and (max-width: 1150px) {
-  .portfolio-grid figure .name {
-    min-height: 85px;
+/* --- Curriculo: espaco entre as colunas quando empilham no celular --- */
+/* Ate 767px as duas colunas (Experiencia | Idiomas+Skills) viram uma so.
+   Sem margem, o titulo "Idiomas" cola no fim da Experiencia. */
+@media only screen and (max-width: 767px) {
+  section[data-id="resume"] .row > [class*="col-"] + [class*="col-"] {
+    margin-top: 50px;
   }
 }
 
-@media only screen and (max-width: 560px) {
-  .portfolio-grid figure .name {
-    min-height: 85px;
+/* --- Sidebar: rodape de idioma rola junto com o conteudo --- */
+/* O .copyrights era position:absolute ancorado no .page-content, entao
+   ficava colado no rodape da pagina em vez de acompanhar a rolagem
+   interna do header. Com o header em flex-column e margin-top:auto,
+   ele desce ate o fim quando sobra espaco e rola junto quando falta. */
+@media only screen and (min-width: 1025px) {
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
-}
 
-/* --- Projetos: links em verde (mesmo tom do "CLICK HERE") --- */
-section[data-id="projects"] .section-content a {
-  color: #0ba376;
-}
-
-section[data-id="projects"] .section-content a:hover {
-  color: #0dc78f;
-}
-
-
-/* --- Lightbox (Magnific Popup): neutraliza o estilo global de <button> --- */
-/* O botao "Close (Esc)" e um <button>, e o Magnific o estica com width:100%
-   sobre a imagem. Com isso ele herdava a borda/fundo verde da regra global
-   de botoes e virava uma barra. Aqui ele volta a ser so o X. */
-button.mfp-close,
-button.mfp-close:hover,
-button.mfp-close:focus,
-button.mfp-arrow,
-button.mfp-arrow:hover,
-button.mfp-arrow:focus {
-  background: transparent;
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  margin: 0;
-  box-shadow: none;
+  .header .copyrights {
+    position: static;
+    width: auto;
+    margin-top: auto;
+    padding-top: 30px;
+  }
 }
