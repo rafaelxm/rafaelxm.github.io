@@ -4,9 +4,7 @@ Personal portfolio and online CV of **Rafael Miranda** — Senior Data Engineer 
 
 **Live site:** [rafaelxm.github.io](https://rafaelxm.github.io)
 
-<!-- Adicione um screenshot da home aqui:
 ![Screenshot](img/screenshot.png)
--->
 
 ---
 
