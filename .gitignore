@@ -1,0 +1,28 @@
+# --- Windows ---
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- macOS ---
+.DS_Store
+._*
+
+# --- Linux ---
+*~
+.directory
+
+# --- Editores ---
+.vscode/
+.idea/
+*.swp
+*.sublime-workspace
+
+# --- Backups e temporários ---
+*.bak
+*.tmp
+*.old
+*.orig
+old.*
+*_backup.*
