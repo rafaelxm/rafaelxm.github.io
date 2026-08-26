@@ -3047,3 +3047,59 @@ blockquote {
     padding-top: 30px;
   }
 }
+
+
+/* --- Certificacoes: altura uniforme dos cards da grid --- */
+/* Cada figure vira uma coluna flex e o titulo ocupa uma faixa de altura
+   reservada, entao titulos de 1, 2 ou 3 linhas geram cards da mesma altura.
+   Se um dia entrar um titulo maior e a fileira desalinhar, aumente o
+   min-height abaixo. */
+.portfolio-grid figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-grid figure .portfolio-item-img {
+  flex: 0 0 auto;
+}
+
+.portfolio-grid figure .name {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 12px 6px;
+  font-size: 14px;
+  line-height: 1.35;
+  min-height: 86px;
+  overflow-wrap: break-word;
+}
+
+/* --- Projetos: links no verde do site em vez do azul padrao --- */
+section[data-id="projects"] .section-content a {
+  color: #0ba376;
+}
+
+section[data-id="projects"] .section-content a:hover {
+  color: #0dc78f;
+}
+
+/* --- Lightbox (Magnific Popup): neutraliza o estilo global de botao --- */
+/* O botao de fechar e um elemento button e o Magnific o estica sobre toda
+   a largura da imagem, entao ele herdava a borda e o fundo verde da regra
+   global de botoes e virava uma barra. */
+button.mfp-close,
+button.mfp-close:hover,
+button.mfp-close:focus,
+button.mfp-arrow,
+button.mfp-arrow:hover,
+button.mfp-arrow:focus {
+  background: transparent;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+}
